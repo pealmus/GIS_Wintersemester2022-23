@@ -20,7 +20,7 @@ p {
 
     #navbar {
         overflow: hidden;
-        background-color: var(--my-background-color);
+        background-color: #181818;
       }
       
       #navbar a {
