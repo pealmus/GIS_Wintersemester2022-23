@@ -11,6 +11,8 @@ body {
     background-color: #181818;
     padding-top: 30px;
     padding-bottom: 60px;
+    max-width: 100%;
+    width: 100%;
 }
 
 p {
@@ -21,6 +23,8 @@ p {
     #navbar {
         overflow: hidden;
         background-color: #181818;
+        margin-top: -60px;
+
       }
       
       #navbar a {
@@ -28,7 +32,8 @@ p {
         display: block;
         color: #454545;
         text-align: center;
-        padding: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
         text-decoration: none;
         font-size: 30px;
       }
@@ -43,5 +48,130 @@ p {
         height: 140px;
         left: 11px;
         top: 13px;
+    }
+
+    #suche {
+      border: 2px solid #999;
+      border-radius: 0.5em;;
+      font-size: 1.2em;
+      width: 10em;
+      transition: width 0.5s ease-in-out;
+
+    }
+
+    #su {
+      text-align: center;
+      margin-top: 50px;
+      margin-right: 30px;
+      font-size: small;
+    
+    }
+
+    
+     
+    #suche:focus {
+      font-size: 1.5em;
+      width: 50%;
+    }
+
+
+    @media (max-width: 1200px) {
+
+
+
+      .video {
+        width: 50%;
+        max-width: 50%;
+        align-items: center;
+      }
+
+      #su {
+        text-align: right;
+        margin-top: 50px;
+        margin-right: 30px;
+        font-size: small;
+       
+  
+      }
+    
+      body {
+        width:100%;
+        max-width: 100%;
+      }
+      header{
+        width: 80%;
+        max-width: 80%;
+
+      }
+    
+      .logo {
+        width: 30%;
+        height: 30%;
+      }
+    
+      #navbar {
+        text-align: right;
+        overflow: hidden;
+        background-color: #181818;
+        width: 80%;
+        max-width: 80%;
+        padding-top: 30px;
+        margin-right: 30px;
+      }
+      
+      #navbar a {
+        display: block;
+        color: #454545;
+        text-align: center;
+        text-decoration: none;
+        font-size: 10px;
+        margin-top: 50px;
+      }
+    }
+
+    @media (max-width: 500px){
+
+      .video {
+        width: 50%;
+        max-width: 50%;
+        align-items: center;
+      }
+
+      #su {
+        text-align: right;
+        margin-top: 50px;
+        margin-right: 30px;
+        font-size: small;
+  
+      }
+    
+      body {
+        width:100%;
+        max-width: 100%;
+      }
+    
+      .logo {
+        width: 20%;
+        height: 20%;
+      }
+    
+      #navbar {
+        overflow: hidden;
+        background-color: #181818;
+        width: 80%;
+        max-width: 80%;
+        padding-top: 30px;
+      }
+      
+      #navbar a {
+        display: block;
+        color: #454545;
+        text-align: center;
+        text-decoration: none;
+        font-size: 10px;
+        margin-top: 50px;
+      }
+    }
+  
     }
 
