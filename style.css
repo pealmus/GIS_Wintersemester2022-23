@@ -14,6 +14,18 @@ body {
     max-width: 100%;
     width: 100%;
 }
+.kom {
+  height: 10%;
+  width: 30%;
+  background-color: white;
+  border-color: black;
+
+}
+.kommentare {
+
+  border-color: black;
+
+}
 
 p {
     color: rgb(165, 165, 165);
@@ -35,7 +47,7 @@ p {
         padding-left: 10px;
         padding-right: 10px;
         text-decoration: none;
-        font-size: 30px;
+        font-size: 2em;
       }
 
       #aktiv {
@@ -73,6 +85,7 @@ p {
       font-size: 1.5em;
       width: 50%;
     }
+
 
 
     @media (max-width: 1200px) {
