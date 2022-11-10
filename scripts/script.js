@@ -1,3 +1,7 @@
+let button = document.getElementById("click");
+button.addEventListener("click", speichern);
+
+
 function speichern() {
     let kommentare = document.getElementById("kommentare").value;
     let inhalt = document.getElementById('inhalt');
