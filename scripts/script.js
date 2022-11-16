@@ -1,6 +1,6 @@
 let button = document.getElementById("click");
 button.addEventListener("click", speichern);
-
+button.addEventListener("keypress", speichern)
 
 function speichern() {
     let kommentare = document.getElementById("kommentare").value;
@@ -11,7 +11,7 @@ function speichern() {
     for (let i =0; i < localStorage.length; i++) {
         ausgabe += localStorage.key(i) + " = " + localStorage.getItem(localStorage.key(i)) + "<br>";
     }
-    document.getElementById("comments").innerHTML = ausgabe;
+    document.getElementById("comments").innerHTML = ausgabe; // mit .value arbeiten
     document.getElementById("kom").innerHTML = Date();
     document.getElementById("comments").innerHTML = kommentare;
 }
