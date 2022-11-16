@@ -5,24 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startseite</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-    <script src="scripts/script.js" defer></script>
+    <script src="/scripts/script.js" defer></script>
 </head>
 <body>
     <header>        
-        <a href="index.html"><img src="images/Bluetube.svg" alt="Logo von Bluetube" class="logo"></a>
+        <a href="/index.html"><img src="/images/Bluetube.svg" alt="Logo von Bluetube" class="logo"></a>
         <div id="su">
             <input type="search" id="suche" placeholder="Suche...">
         </div>
         <div id="navbar">
-            <a href="about.html"><p>About</p></a>
-            <a href="video.html"><p id="aktiv">Video</p></a>
-            <a href="index.html"><p>Start</p></a>
+            <a href="/pages/about.html"><p >About</p></a>
+            <a href="/pages/videos.html"><p id="aktiv" >Video</p></a>
+            <a href="/index.html"><p >Start</p></a> 
         </div></header>
     <main>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/jNQXAC9IVRw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="video"></iframe>
-        <h2> <p> Ich im Zoo</p></h2>
+        <div class="video">
+            <div id="player"></div>
+            </div>
+        <h2> <p> Running Lego Engines with Air</p></h2>
         <div><h3><p>Kommentare</p></h3>
             <textarea id="kommentare" placeholder="Kommentare"></textarea> <br>
             <input type="button" value="Speichern" id="click">
@@ -32,7 +34,7 @@
             </div>
     </main>
     <footer>
-        <a href="impressum.html"><p>Impressum</p></a>
+        <a href="/pages/impressum.html"><p>Impressum</p></a>
     </footer>
 </body>
 </html>
