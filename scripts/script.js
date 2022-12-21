@@ -11,9 +11,12 @@ function speichern() {
     for (let i =0; i < localStorage.length; i++) {
         ausgabe += localStorage.key(i) + " = " + localStorage.getItem(localStorage.key(i)) + "<br>";
     }
-    document.getElementById("comments").innerHTML = ausgabe; // mit .value arbeiten
-    document.getElementById("kom").innerHTML = Date();
-    document.getElementById("comments").innerHTML = kommentare;
+    document.getElementById("kom").textContent = Date();
+    const newComment = document.createElement("p");  
+    const newContent = document.getElementById("comments").textContent = kommentare;
+    newComment.appendChild(newContent);
+    const currentComment = document.getElementById("kom");
+    document.body.insertBefore(newComment, currentComment);
 }
 
 const tag = document.createElement('script');
@@ -47,6 +50,10 @@ function onPlayerStateChange(event) {
 function stopVideo() {
     player.stopVideo();
 }
+
+
+const p = document.createElement('p');
+p.className = 'kommentareSpeichern';
 
 
 

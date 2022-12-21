@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <script src="/scripts/script.js" defer></script>
+    <script src="/scripts/store.js" defer></script>
 </head>
 <body>
     <header>        
-        <a href="/index.html"><img src="/images/Bluetube.svg" alt="Logo von Bluetube" class="logo"></a>
+        <a href="../../index.html"><img src="/images/Bluetube.svg" alt="Logo von Bluetube" class="logo"></a>
         <div id="su">
             <input type="search" id="suche" placeholder="Suche...">
         </div>
         <div id="navbar">
-            <a href="/pages/about.html"><p >About</p></a>
-            <a href="/pages/videos.html"><p id="aktiv" >Video</p></a>
+            <a href="../pages/about.html"><p >About</p></a>
+            <a href="../pages/videos.html"><p id="aktiv" >Video</p></a>
             <a href="../../index.html"><p >Start</p></a> 
         </div></header>
     <main>
@@ -28,13 +29,14 @@
         <div><h3><p>Kommentare</p></h3>
             <textarea id="kommentare" placeholder="Kommentare"></textarea> <br>
             <input type="button" value="Speichern" id="click">
-            <div class="kom">
+            <div class="kom" >
                 <p id="kom"></p>
                 <p id="comments"></p>
+                <!--Nachfragen wie es auch ohne p Tags funktioniert -->
             </div>
     </main>
     <footer>
-        <a href="/pages/impressum.html"><p>Impressum</p></a>
+        <a href="../pages/impressum.html"><p>Impressum</p></a>
     </footer>
 </body>
 </html>
