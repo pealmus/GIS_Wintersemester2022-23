@@ -1,0 +1,1 @@
+Datenbank\zipinstall\bin\mongod.exe --dbpath Datenbank\data\db

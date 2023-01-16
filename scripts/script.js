@@ -1,23 +1,38 @@
-let button = document.getElementById("click");
-button.addEventListener("click", speichern);
-button.addEventListener("keypress", speichern)
+/*function saveText() {
 
-function speichern() {
-    let kommentare = document.getElementById("kommentare").value;
-    let inhalt = document.getElementById('inhalt');
-    window.localStorage.setItem('kommentare','inhalt');
-    console.log(kommentare);
-    let ausgabe = "";
-    for (let i =0; i < localStorage.length; i++) {
-        ausgabe += localStorage.key(i) + " = " + localStorage.getItem(localStorage.key(i)) + "<br>";
-    }
-    document.getElementById("kom").textContent = Date();
-    const newComment = document.createElement("p");  
-    const newContent = document.getElementById("comments").textContent = kommentare;
-    newComment.appendChild(newContent);
-    const currentComment = document.getElementById("kom");
-    document.body.insertBefore(newComment, currentComment);
+    let inputText = document.getElementById("kommentare").value;
+    
+
+    let savedTextEl = document.createElement("p");
+    savedTextEl.setAttribute("id", "kommentar");
+    savedTextEl.innerHTML = inputText;
+  
+
+    document.body.appendChild(savedTextEl);
+
+  
+    localStorage.setItem("kommentar", inputText);
 }
+  
+
+const saveButton = document.getElementById("saveButton");
+  
+
+saveButton.addEventListener("click", saveText);
+
+if (localStorage.getItem("kommentar")) {
+
+    var savedText = localStorage.getItem("kommentar");
+    
+
+    var savedTextEl = document.createElement("p");
+    savedTextEl.setAttribute("id", "kommentar");
+    savedTextEl.innerHTML = savedText;
+
+    document.body.appendChild(savedTextEl);
+}*/
+
+
 
 const tag = document.createElement('script');
 
@@ -52,8 +67,60 @@ function stopVideo() {
 }
 
 
-const p = document.createElement('p');
-p.className = 'kommentareSpeichern';
+document.getElementById("speichern").addEventListener("click", function(){
+    var eingabe = document.getElementById("eingabe").value;
+    localStorage.setItem("eingabe", eingabe);
+    fetch('/submit', {
+        method: 'POST',
+        body: JSON.stringify({eingabe: eingabe}),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(res => res.json())
+    .then(response => console.log('Erfolg:', JSON.stringify(response)))
+    .catch(error => console.error('Fehler:', error));
+});
+
+fetch('/kommentare')
+.then(response => response.json())
+.then(kommentare => {
+    kommentare.forEach(function(kommentar) {
+        var p = document.createElement("p");
+        p.id = "kommentar";
+        var node = document.createTextNode(kommentar.eingabe);
+        p.appendChild(node);
+        var element = document.getElementById("eingabe-abschnitt");
+        element.appendChild(p);
+    });
+});
+
+const speichernButton = document.getElementById('speichern');
+speichernButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  const kommentar = document.getElementById('kommentare').value;
+  fetch('/kommentare', {
+    method: 'POST',
+    body: JSON.stringify({ kommentar }),
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
+});
+
+const kommentarListe = document.getElementById('kommentar-liste');
+fetch('/kommentare')
+  .then(res => res.json())
+  .then(data => {
+    data.forEach(kommentar => {
+      const p = document.createElement('p');
+      p.innerText = kommentar;
+      kommentarListe.appendChild(p);
+    });
+  })
+  .catch(err => console.log(err));
+
+
+
 
 
 

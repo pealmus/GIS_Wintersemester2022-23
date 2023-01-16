@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <script src="/scripts/script.js" defer></script>
     <script src="/scripts/store.js" defer></script>
+    <script src="/server.js"></script>
 </head>
 <body>
     <a href="../../index.html"><img src="/images/Bluetube.svg" alt="Logo von Bluetube" class="logo"></a>
@@ -27,12 +28,11 @@
             </div>
         <h2> <p> Ich im Zoo</p></h2>
         <div><h3><p>Kommentare</p></h3>
-            <textarea id="kommentare" placeholder="Kommentare"></textarea> <br>
-            <input type="button" value="Speichern" id="click">
-            <div class="kom">
-                <p id="kom"></p>
-                <p id="comments"></p>
-            </div> 
+            <textarea id="eingabe" placeholder="Kommentare"></textarea> <br>
+            <input type="button" value="Speichern" id="speichern">
+            <div id="kommentar-liste">
+                
+            </div>
         </div>
     </main>
     <footer>
