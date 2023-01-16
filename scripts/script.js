@@ -1,4 +1,4 @@
-/*function saveText() {
+function saveText() {
 
     let inputText = document.getElementById("kommentare").value;
     
@@ -30,7 +30,7 @@ if (localStorage.getItem("kommentar")) {
     savedTextEl.innerHTML = savedText;
 
     document.body.appendChild(savedTextEl);
-}*/
+}
 
 
 
@@ -65,59 +65,6 @@ function onPlayerStateChange(event) {
 function stopVideo() {
     player.stopVideo();
 }
-
-
-document.getElementById("speichern").addEventListener("click", function(){
-    var eingabe = document.getElementById("eingabe").value;
-    localStorage.setItem("eingabe", eingabe);
-    fetch('/submit', {
-        method: 'POST',
-        body: JSON.stringify({eingabe: eingabe}),
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(res => res.json())
-    .then(response => console.log('Erfolg:', JSON.stringify(response)))
-    .catch(error => console.error('Fehler:', error));
-});
-
-fetch('/kommentare')
-.then(response => response.json())
-.then(kommentare => {
-    kommentare.forEach(function(kommentar) {
-        var p = document.createElement("p");
-        p.id = "kommentar";
-        var node = document.createTextNode(kommentar.eingabe);
-        p.appendChild(node);
-        var element = document.getElementById("eingabe-abschnitt");
-        element.appendChild(p);
-    });
-});
-
-const speichernButton = document.getElementById('speichern');
-speichernButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  const kommentar = document.getElementById('kommentare').value;
-  fetch('/kommentare', {
-    method: 'POST',
-    body: JSON.stringify({ kommentar }),
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
-});
-
-const kommentarListe = document.getElementById('kommentar-liste');
-fetch('/kommentare')
-  .then(res => res.json())
-  .then(data => {
-    data.forEach(kommentar => {
-      const p = document.createElement('p');
-      p.innerText = kommentar;
-      kommentarListe.appendChild(p);
-    });
-  })
-  .catch(err => console.log(err));
 
 
 

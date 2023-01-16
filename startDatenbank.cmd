@@ -1,1 +1,1 @@
-Datenbank\zipinstall\bin\mongod.exe --dbpath Datenbank\data\db
+Datenbank\zipinstall\bin\mongod.exe --dbpath Datenbank\data\db\kommentare\kommentare
