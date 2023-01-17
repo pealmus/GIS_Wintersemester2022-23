@@ -17,14 +17,27 @@ async function startServer() {
 }
 
 const server = http.createServer(async(request, response) => {
+  console.log("hallo" + request.method);
   response.statusCode = 200;
   response.setHeader('Content-Type', 'text/plain');
   response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   const url = new URL(request.url || '', `http://${request.headers.host}`);
   // wert an die MongoDB senden
   const db = mongoClient.db('kommentare');
   const collection = db.collection('kommentare');
-  await collection.insertOne({ text });
+  
+    if (request.method === 'POST') {
+      console.log("post");
+      let text = '';
+      request.on('data', (data) => {
+        text += data;
+      });
+      request.on('end', () => {
+        console.log(JSON.parse(text));
+        collection.insertOne({ text });
+      });
+    }
 });
 
 /*
@@ -38,7 +51,7 @@ fetch('/comments', {
     localStorage.setItem('comment', comment);
     const p = document.getElementById('kommentar');
     p.innerHTML = comment;
-});*/
+});
 
 // aus der Textarea mit der ID "kommentare" den Wert auslesen 
 const text = document.getElementById('kommentare').value;
@@ -54,7 +67,7 @@ fetch('/comments', {
     const p = document.getElementById('kommentar');
     p.innerHTML = comment;
 });
-
+*/
 // wert an die MongoDB senden
 /*const db = mongoClient.db('kommentare');
 const collection = db.collection('kommentare');

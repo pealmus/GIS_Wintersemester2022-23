@@ -12,6 +12,21 @@ function saveText() {
 
   
     localStorage.setItem("kommentar", inputText);
+
+    const text = document.getElementById('kommentare').value;
+
+    
+fetch('http://127.0.0.1:3000/comments', {
+    method: 'POST',
+    body: JSON.stringify({ text }),
+})
+/*.then(res => res.json())
+.then(comment => {
+    localStorage.setItem('comment', comment);
+    const p = document.getElementById('kommentar');
+    p.innerHTML = comment;
+});*/
+
 }
   
 
@@ -65,17 +80,8 @@ function onPlayerStateChange(event) {
 function stopVideo() {
     player.stopVideo();
 }
-fetch('/comments', {
-    method: 'POST',
-    body: JSON.stringify({ text }),
-    headers: { 'Content-Type': 'application/json' }
-})
-.then(res => res.json())
-.then(comment => {
-    localStorage.setItem('comment', comment);
-    const p = document.getElementById('kommentar');
-    p.innerHTML = comment;
-});
+
+
 
 
 
