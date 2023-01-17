@@ -38,6 +38,17 @@ const server = http.createServer(async(request, response) => {
         collection.insertOne({ text });
       });
     }
+    
+});
+
+server.on('request', async (request, response) => {
+  console.log("Hier kommt was zurück");
+  if (request.method === 'GET') {
+    const db = mongoClient.db('kommentare');
+    const collection = db.collection('kommentare');
+    const data = await collection.find({}).toArray();
+    response.end(JSON.stringify(data));
+  }
 });
 
 /*

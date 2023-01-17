@@ -20,6 +20,20 @@ fetch('http://127.0.0.1:3000/comments', {
     method: 'POST',
     body: JSON.stringify({ text }),
 })
+
+fetch('/kommentare')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(item => {
+      const p = document.createElement('p');
+      savedTextEl.setAttribute("id", "kommentar");
+      savedTextEl.innerHTML = savedText;
+      p.textContent = item.text;
+      document.body.appendChild(p);
+    });
+  });
+
+
 /*.then(res => res.json())
 .then(comment => {
     localStorage.setItem('comment', comment);
@@ -33,7 +47,7 @@ fetch('http://127.0.0.1:3000/comments', {
 const saveButton = document.getElementById("saveButton");
   
 
-saveButton.addEventListener("click", saveText);
+/*saveButton.addEventListener("click", saveText);
 
 if (localStorage.getItem("kommentar")) {
 
@@ -45,7 +59,7 @@ if (localStorage.getItem("kommentar")) {
     savedTextEl.innerHTML = savedText;
 
     document.body.appendChild(savedTextEl);
-}
+}*/
 
 
 
