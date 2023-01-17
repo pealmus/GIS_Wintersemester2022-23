@@ -47,9 +47,9 @@ fetch('/kommentare')
 const saveButton = document.getElementById("saveButton");
   
 
-/*saveButton.addEventListener("click", saveText);
+saveButton.addEventListener("click", saveText);
 
-if (localStorage.getItem("kommentar")) {
+/*if (localStorage.getItem("kommentar")) {
 
     var savedText = localStorage.getItem("kommentar");
     
