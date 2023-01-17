@@ -65,6 +65,17 @@ function onPlayerStateChange(event) {
 function stopVideo() {
     player.stopVideo();
 }
+fetch('/comments', {
+    method: 'POST',
+    body: JSON.stringify({ text }),
+    headers: { 'Content-Type': 'application/json' }
+})
+.then(res => res.json())
+.then(comment => {
+    localStorage.setItem('comment', comment);
+    const p = document.getElementById('kommentar');
+    p.innerHTML = comment;
+});
 
 
 
