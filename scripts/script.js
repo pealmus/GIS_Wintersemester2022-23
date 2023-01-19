@@ -1,3 +1,4 @@
+// Wird aufgerufen wenn der saveButton gedrückt wird
 function saveText() {
 
     let inputText = document.getElementById("kommentare").value;
@@ -16,12 +17,13 @@ function saveText() {
 
     const text = document.getElementById('kommentare').value;
 
-    
+ //kommentare auf den Server/Datenbank
 fetch('http://127.0.0.1:3000/comments', {
     method: 'POST',
     body: JSON.stringify({ text }),
 })
 
+// kommentare vom Server/Datenbank holen
 fetch('http://127.0.0.1:3000/comments')
   .then(response => response.json())
   .then(data => {

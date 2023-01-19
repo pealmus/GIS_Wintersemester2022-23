@@ -38,6 +38,7 @@ const server = http.createServer(async(request, response) => {
         collection.insertOne({ text });
       });
     }
+    // Rückgabe der Datenbank / des Servers
     if (request.method === 'GET') {
       console.log("Hier kommt was nochmal zurück");
       const db = mongoClient.db('kommentare');
