@@ -38,18 +38,28 @@ const server = http.createServer(async(request, response) => {
         collection.insertOne({ text });
       });
     }
+    if (request.method === 'GET') {
+      console.log("Hier kommt was nochmal zurück");
+      const db = mongoClient.db('kommentare');
+      const collection = db.collection('kommentare');
+      const data = await collection.find({}).toArray();
+      response.end(JSON.stringify(data));
+      console.log("und Hier kommt nochmal was zurück");
+    }
     
 });
 
-server.on('request', async (request, response) => {
+/*server.on('request', async (request, response) => {
   console.log("Hier kommt was zurück");
   if (request.method === 'GET') {
+    console.log("Hier kommt was nochmal zurück");
     const db = mongoClient.db('kommentare');
     const collection = db.collection('kommentare');
     const data = await collection.find({}).toArray();
     response.end(JSON.stringify(data));
+    console.log("und Hier kommt nochmal was zurück");
   }
-});
+});*/
 
 /*
 fetch('/comments', {

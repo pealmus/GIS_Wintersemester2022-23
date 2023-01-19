@@ -8,7 +8,8 @@ function saveText() {
     savedTextEl.innerHTML = inputText;
   
 
-    document.body.appendChild(savedTextEl);
+    const komDiv = document.getElementById("kom");
+    komDiv.appendChild(savedTextEl);
 
   
     localStorage.setItem("kommentar", inputText);
@@ -21,15 +22,17 @@ fetch('http://127.0.0.1:3000/comments', {
     body: JSON.stringify({ text }),
 })
 
-fetch('/kommentare')
+fetch('http://127.0.0.1:3000/comments')
   .then(response => response.json())
   .then(data => {
     data.forEach(item => {
-      const p = document.createElement('p');
+      const savedTextEl = document.createElement('p');
       savedTextEl.setAttribute("id", "kommentar");
-      savedTextEl.innerHTML = savedText;
-      p.textContent = item.text;
-      document.body.appendChild(p);
+      savedTextEl.innerHTML = inputText;
+      savedTextEl.textContent = item.text;
+      document.body.appendChild(savedTextEl);
+      const komDiv = document.getElementById("kom");
+      komDiv.appendChild(savedTextEl);
     });
   });
 
